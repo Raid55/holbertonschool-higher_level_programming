@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- *
- *
- *
+ * check_cycle - checks if linked list cycles
+ * @list: list to be checked
+ * Return: 1 or 0 depending on true or false
  */
 int check_cycle(listint_t *list)
 {
