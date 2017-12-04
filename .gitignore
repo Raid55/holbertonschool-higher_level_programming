@@ -1,0 +1,7 @@
+.env
+a.out
+test*
+*main.c
+testEnv.c
+*.o
+_putchar.c
