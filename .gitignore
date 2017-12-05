@@ -1,6 +1,7 @@
 .env
 a.out
 test*
+*main.py
 *main.c
 testEnv.c
 *.o
