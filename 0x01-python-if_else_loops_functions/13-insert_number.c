@@ -8,7 +8,7 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	int i = 0;
+	int i = 0, f = 0;
 	listint_t *tmp;
 	listint_t *new;
 
@@ -19,19 +19,27 @@ listint_t *insert_node(listint_t **head, int number)
 	tmp = *head;
 	while (tmp != NULL)
 	{
+		if (i == 0 && tmp->n >= number)
+		{
+			f++;
+			break;
+		}
 		if (tmp->n <= number && (tmp->next == NULL || tmp->next->n >= number))
 			break;
 		tmp = tmp->next;
 		i++;
 	}
+
 	tmp = *head;
 	while (i != 0)
 		tmp = tmp->next, i--;
 	
-	new->n = number, new->next = tmp ? tmp->next : NULL;
+	new->n = number;
 	if (*head == NULL)
-		*head = new;
+		new->next = NULL, *head = new;
+	else if (f)
+		new->next = tmp, *head = new;
 	else
-		tmp->next = new;
+		new->next = tmp->next, tmp->next = new;
 	return (*head);
 }
