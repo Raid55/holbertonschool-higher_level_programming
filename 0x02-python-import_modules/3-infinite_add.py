@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sys import argv
+argv = __import__("sys").argv
 count = 0
 for x in argv[1:]:
     count += int(x)
