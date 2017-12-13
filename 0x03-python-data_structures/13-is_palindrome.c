@@ -10,6 +10,9 @@ int is_palindrome(listint_t **head)
 	int *holder;
 	int i = 0, len = 0;
 	
+	if (head == NULL || *head == NULL)
+		return (0);
+	
 	start = *head;
 
 	while (start != NULL)
