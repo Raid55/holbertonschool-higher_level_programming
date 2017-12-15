@@ -11,6 +11,9 @@ def roman_to_int(roman_string):
     }
     final = 0
 
+    if not isinstance(roman_string, str) or roman_string is None:
+        return final
+
     str_len = len(roman_string)
     i = 0
     while i < str_len:
