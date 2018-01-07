@@ -1,0 +1,40 @@
+
+The ``add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+import module:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+both floats:
+    >>> add_integer(10.9, 0.5)
+    10
+
+float and int:
+	>>> add_integer(1.6, 5)
+	6
+
+two ints:
+	>>> add_integer(1, 2)
+	3
+
+a other type:
+	>>> add_integer("1", 5)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+array:
+	>>> add_integer([1, "lol"], (1, 2))
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+b other type:
+	>>> add_integer(5, "1")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
