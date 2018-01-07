@@ -1,5 +1,5 @@
 
-The ``add_integer`` module
+The ``0-add_integer`` module
 ======================
 
 Using ``add_integer``
@@ -38,3 +38,14 @@ b other type:
 		...
 	TypeError: b must be an integer
 
+only 1 arg:
+	>>> add_integer(1)
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'b'
+
+more than 2 args:
+	>>> add_integer(1, 2, 3)
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() takes 2 positional arguments but 3 were given
