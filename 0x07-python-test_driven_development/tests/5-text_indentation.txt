@@ -1,0 +1,30 @@
+The ``5-text_indentation`` module
+======================
+
+Using ``test_indentation``
+-------------------
+
+import module:
+	>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+text with spaces
+	>>> text_indentation("   Hello Peps   ")
+	Hello Peps
+	<BLANKLINE>
+
+Passing not string:
+	>>> text_indentation(["clearly", "not string"])
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+with . and : and ? in a string:
+	>>> text_indentation("Gillet: The Best a Man can get.  Really  is it really the best?Hell yea it is   ")
+	Gillet:
+	<BLANKLINE>
+	The Best a Man can get.
+	<BLANKLINE>
+	Really  is it really the best?
+	<BLANKLINE>
+	Hell yea it is
+	<BLANKLINE>
