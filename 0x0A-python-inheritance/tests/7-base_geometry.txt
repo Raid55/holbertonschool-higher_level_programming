@@ -1,0 +1,28 @@
+The ``7-base_geometry.py`` module
+======================
+
+Using ``base_geometry``
+-------------------
+
+import module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> geo = BaseGeometry()
+
+standard test:
+    >>> geo.integer_validator("number", 1337)
+
+diff type:
+    >>> geo.integer_validator("tuple", (1, 2, 3, 4))
+    Traceback (most recent call last):
+        ...
+    TypeError: tuple must be an integer
+
+negative number:
+    >>> geo.integer_validator("number", -1000000000)
+    Traceback (most recent call last):
+        ...
+    ValueError: number must be greater than 0
+
+empty string:
+    >>> geo.integer_validator("", 2)
+
