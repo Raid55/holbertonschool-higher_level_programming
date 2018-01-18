@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def append_write(filename="", text=""):
-    finNum = 0    
+    finNum = 0
     with open(filename, "a+") as f:
         for l in text:
             finNum += 1
