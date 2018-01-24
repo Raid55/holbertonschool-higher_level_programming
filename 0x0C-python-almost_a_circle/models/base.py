@@ -15,6 +15,9 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def finf(self):
+        print("lol")
     
     @staticmethod
     def to_json_string(list_dictionaries):
