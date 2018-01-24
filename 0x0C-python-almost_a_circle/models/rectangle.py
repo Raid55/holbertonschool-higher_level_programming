@@ -19,9 +19,15 @@ class Rectangle(Base):
         (self.id, self.x, self.y, self.width, self.height)
 
     def area(self):
+        """
+            Calculates area
+        """
         return self.width * self.height
     
     def display(self):
+        """
+            displays
+        """
         print('\n' * self.y, end="")
         for i in range(0, self.height):
             print(' ' * self.x, end="")
@@ -30,6 +36,9 @@ class Rectangle(Base):
             print()
 
     def to_dictionary(self):
+        """
+            to dict
+        """
         return {
             'id': self.id,
             'width': self.width,
@@ -39,6 +48,9 @@ class Rectangle(Base):
         }
 
     def update(self, *args, **kwargs):
+        """
+            updates the class
+        """
         tmpArr = ["id", "width", "height", "x", "y"]
         if kwargs is not None:
             for key, value in kwargs.items():
