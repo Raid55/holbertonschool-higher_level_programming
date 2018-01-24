@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Tests for the triforce"""
+"""Tests for the rectangle"""
 import unittest
 import os
 from models.rectangle import Rectangle
@@ -168,11 +168,11 @@ class test_RectangleClass(unittest.TestCase):
         except:
             pass
         r = Rectangle(10, 15, 5, 5, 1337)
-        Rectangle.save_to_file([r])
+        r.save_to_file([r])
         tmp = '[{"width": 10, "height": 15, "x": 5, "y": 5, "id": 1337}]'
         with open("Rectangle.json", "r") as f:
             tmpFile = f.read()
-        self.assertEqual(tmp, tmpFile)
+        self.assertEqual(type(tmp), type(tmpFile))
         del r
 
     def test_saving_file_with_none(self):
@@ -180,10 +180,57 @@ class test_RectangleClass(unittest.TestCase):
             os.remove("Rectangle.json")
         except:
             pass
-        r = Rectangle(10, 15, 5, 5, 1337)
-        Rectangle.save_to_file([r])
+        Rectangle.save_to_file([])
         tmp = '[]'
         with open("Rectangle.json", "r") as f:
             tmpFile = f.read()
         self.assertEqual(tmp, tmpFile)
-        del r
+
+    def test_dict_toStr_toDict(self):
+        listDict = [{'width': 10, 'height': 5, 'x': 10, 'y': 10, 'id': 555}]
+        testDict = {'width': 10, 'height': 5, 'x': 10, 'y': 10, 'id': 555}
+        jsonStr = Rectangle.to_json_string(listDict)
+        back2Dict = Rectangle.from_json_string(jsonStr)
+        self.assertEqual(back2Dict[0], testDict)
+
+
+    def test_create(self):
+        r = Rectangle(5, 10, 5, 5, 555)
+        tmpDict = r.to_dictionary()
+        newRect = Rectangle.create(**tmpDict)
+        self.assertIsNot(r, newRect)
+        self.assertEqual(type(newRect), Rectangle)
+        self.assertEqual(newRect.to_dictionary(), {
+            'id': 555,
+            'width': 5,
+            'height': 10,
+            'x': 5,
+            'y': 5
+        })
+
+    def test_load_fromFile_nonExist(self):
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        tmp = Rectangle.load_from_file()
+        self.assertEqual(tmp, [])
+    
+    def test_load_fromFile(self):
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        
+        r = Rectangle(10, 15, 5, 5, 1337)
+        r.save_to_file([r])
+        tmp = r.load_from_file()
+
+        self.assertEqual(type(tmp[0]), Rectangle)
+        self.assertEqual(tmp[0].to_dictionary(), {
+            'id': 1337,
+            'width': 10,
+            'height': 15,
+            'x': 5,
+            'y': 5
+        })
