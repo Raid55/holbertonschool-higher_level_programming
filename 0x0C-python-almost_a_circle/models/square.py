@@ -15,6 +15,9 @@ class Square(Rectangle):
         (self.id, self.x, self.y, self.width)
 
     def to_dictionary(self):
+        """
+            to dict
+        """
         return {
             'id': self.id,
             'size': self.size,
@@ -23,6 +26,9 @@ class Square(Rectangle):
         }
 
     def update(self, *args, **kwargs):
+        """
+            updates square
+        """
         tmpArr = ["id", "size", "x", "y"]
         if kwargs is not None:
             for key, value in kwargs.items():
