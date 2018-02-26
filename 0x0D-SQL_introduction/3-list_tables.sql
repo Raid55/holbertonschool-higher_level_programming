@@ -1,0 +1,2 @@
+-- shwos tabels
+SHOW TABLES;
