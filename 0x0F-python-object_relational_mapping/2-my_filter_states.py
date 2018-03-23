@@ -17,11 +17,11 @@ if __name__ == "__main__":
 
     query = """SELECT id, name
             FROM states
-            WHERE name='{0}'
-            ORDER BY id ASC""".format(argv[4])
+            WHERE name LIKE BINARY '{}'
+            ORDER BY id ASC"""
 
     cur = conn.cursor()
-    cur.execute(query)
+    cur.execute(query.format(argv[4]))
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
