@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""querys db """
+"""querys db"""
+
 import sys
 from model_state import Base, State
-
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+
 
 if __name__ == "__main__":
     engine = create_engine(
@@ -18,9 +19,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     sesh = Session()
 
-    for state in sesh.query(State).order_by(State.id).limit(1):
-        print("{}: {}".format(state.id, state.name))
-        break
+    tmp = sesh.query(State).first()
+
+    if tmp:
+        print("{}: {}".format(tmp.id, tmp.name))
     else:
         print("Nothing")
 
