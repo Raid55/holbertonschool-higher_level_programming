@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Start link class to table in database 
-"""
+"""Start link class to table in database"""
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from model_state import State, Base
+
 
 class City(Base):
     """
