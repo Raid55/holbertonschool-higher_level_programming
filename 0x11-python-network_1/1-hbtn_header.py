@@ -7,4 +7,4 @@ from sys import argv
 
 if __name__ == "__main__":
     with urllib.request.urlopen(argv[1]) as page:
-        print(dict(page.info())['X-Request-Id'])
+        print(dict(page.info()).get('X-Request-Id'))
