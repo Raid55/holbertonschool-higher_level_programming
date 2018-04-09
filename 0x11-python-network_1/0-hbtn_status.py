@@ -11,4 +11,3 @@ if __name__ == "__main__":
         print("\t- type:", type(read))
         print("\t- content:", read)
         print("\t- utf8 content:", read.decode('utf-8'))
-
