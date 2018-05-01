@@ -10,7 +10,7 @@ if (isNaN(process.argv[2])) {
     l = 0;
     let st = '';
     while (l++ < c) {
-      st += '#';
+      st += 'X';
     }
     console.log(st);
   }
