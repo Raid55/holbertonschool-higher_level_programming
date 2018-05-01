@@ -2,6 +2,7 @@
 a.out
 *main.py
 *main.c
+*main.js
 testEnv.c
 *.o
 _putchar.c
