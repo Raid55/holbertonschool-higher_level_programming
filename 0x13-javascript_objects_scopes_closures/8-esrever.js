@@ -1,4 +1,3 @@
-exports.esrever = function(list) {
-  return list.map((el, idx) => list[list.length - idx - 1])
-}
-
+exports.esrever = function (list) {
+  return list.map((el, idx) => list[list.length - idx - 1]);
+};
