@@ -9,6 +9,9 @@ _putchar.c
 __pycache__/
 __PYCACHE__/
 
+node_modules/
+
+
 
 # files that bother me... so i put them here TO ROT MUHAHAHA il eventually fix lol im not that evil
 0x00-python-hello_world/test.py
